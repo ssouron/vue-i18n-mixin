@@ -1,6 +1,6 @@
 # vue-i18n-mixin
 
-Simple internationalisation mixin for Vue.js
+Simple internationalisation mixin for Vue.js with fallback locale.
 
 ## Installation
 
@@ -17,7 +17,8 @@ var root = new Vue({
 	],
 
 	data: {
-		locale: 'en'
+		locale: 'en',
+        fallbackLocale: 'en'
 	},
 
 	translations: {
@@ -40,13 +41,11 @@ var root = new Vue({
 		var title;
 
 		// You can translate in the VM
-		title = this.translate('header.title'); // Will return 'Hello'
+		title = this.t('header.title'); // Will return 'Hello'
 
 		// You can force a locale
-		title = this.translate('header.title', 'fr'); // Will return 'Bonjour'
+		title = this.t('header.title', 'fr'); // Will return 'Bonjour'
 
-		// You can use the shorthand
-		title = this.t('header.title')
 	}
 });
 ```
@@ -54,8 +53,6 @@ var root = new Vue({
 ### In a view
 
 ```html
-<h1 v-text="translate('header.title')"></h1>
-
 <h1 v-text="t('header.title')"></h1>
 
 <h1 v-text="t('header.title', 'fr')"></h1>

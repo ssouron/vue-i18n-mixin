@@ -4,7 +4,7 @@ Simple internationalisation mixin for Vue.js with fallback locale.
 
 ## Installation
 
-`npm install --save vue-i18n-mixin`
+`npm install --save ssouron/vue-i18n-mixin#0.2.0`
 
 ## Usage
 
@@ -53,9 +53,9 @@ var root = new Vue({
 ### In a view
 
 ```html
-<h1 v-text="t('header.title')"></h1>
+<h1 v-text="$root.t('header.title')"></h1>
 
-<h1 v-text="t('header.title', 'fr')"></h1>
+<h1 v-text="$root.t('header.title', 'fr')"></h1>
 
-<h1>{{ t('header.title') }}</h1>
+<h1>{{ $root.t('header.title') }}</h1>
 ```

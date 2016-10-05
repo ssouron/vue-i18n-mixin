@@ -15,6 +15,7 @@ module.exports = {
 	},
 
 	methods: {
+        // ======================= Translation method =======================
 		t: function(namespace, locale) {
 
 			locale = locale || this.locale || this.$root.locale;
@@ -32,6 +33,12 @@ module.exports = {
 				console.warn('No translation found for namespace %s using locale %s or no translation in fallback locale', namespace, locale);
 			}
 			return translation;
-		}
+		},
+      // =================== Adding translation method ====================
+      addTranslation(namespace, translations) {
+        if (typeof translations === 'object' && namespace != '') {
+          this.$options.translations[namespace] = translations
+        }
+      }
 	}
 }
